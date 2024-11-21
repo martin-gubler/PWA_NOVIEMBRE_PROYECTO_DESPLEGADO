@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import extractFormData from '../../utils/extractFromData.js'
+import ENVIROMENT from '../../enviroment.js'
 
 
 const ResetPassword = () => {
@@ -13,7 +14,7 @@ const ResetPassword = () => {
         'password': ''
     }
     const form_values_object = extractFormData(form_fields, form_Values)
-    fetch('http://localhost:3000/api/auth/reset-password/' + reset_token, {
+    fetch(`${ENVIROMENT.URL_BACKEND}/api/auth/reset-password/` + reset_token, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json' //Aca le indicamos al back que lo que enviamos es un JSON
